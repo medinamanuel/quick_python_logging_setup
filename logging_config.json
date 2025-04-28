@@ -1,0 +1,58 @@
+{
+    "version": 1,
+    "formatters": {
+        "detailed_message": {
+            "format": "%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "INFO",
+            "formatter": "detailed_message",
+            "stream": "ext://sys.stdout"
+        },
+        "main_log_file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "NOTSET",
+            "formatter": "detailed_message",
+            "filename": "logs/main_log_file.log",
+            "mode": "a",
+            "maxBytes": 20971520,
+            "backupCount": 10,
+            "encoding": "utf8"
+        },
+        "sub_log_file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "NOTSET",
+            "formatter": "detailed_message",
+            "filename": "logs/sub_log_file.log",
+            "mode": "a",
+            "maxBytes": 20971520,
+            "backupCount": 10,
+            "encoding": "utf8"
+        }
+    },
+    "loggers": {
+        "main_logger": {
+            "level": "DEBUG",
+            "handlers": [
+                "main_log_file",
+                "console"
+            ],
+            "propagate": false
+        },
+        "sub_logger": {
+            "level": "DEBUG",
+            "handlers": [
+                "sub_log_file",
+                "console"
+            ],
+            "propagate": false
+        }
+    },
+    "root": {
+        "level": "DEBUG",
+        "handlers": []
+    }
+}
