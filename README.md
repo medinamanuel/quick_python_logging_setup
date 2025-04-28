@@ -8,6 +8,10 @@ Whatever the reason, configuring a proper logging setup is not fun, and for begi
 Yes, now with LLMs it's easier than ever to just craft a prompt and have something functional in minutes. But for those who can't write a prompt to get good results, or those who 
 just want something that works without too much hassle, use these files.
 
+
+# Usage
+See `log_test.py`. 
+
 # Structure
 The idea is to have at least one logger that has 2 handlers: One for stdout and one for file. For the latter, RotatingFileHandler is used. 
 Be default, log files will be saved inside a `logs` directory. It will be created if it does not exist. You can change it on `LoggingSetup.LOG_DIRECTORY_NAME`
